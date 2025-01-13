@@ -12,12 +12,23 @@
             decimal clothingPrice = 39.50m;
 
             Console.WriteLine($"Total price of : \"{numOfBooks} Books , {numOfElectronics} Electronics , {numOfClothing} Clothing\" = {(numOfBooks * booksPrice) + (numOfElectronics * electronicsPrice) + (numOfClothing * clothingPrice)}$");
+        }
+        #endregion
+
+        #region WeekendCustomers Function
+        public static void WeekendCustomers(int storeServesNums)
+        {
+            Console.WriteLine("Welcome in Weekend Customers App :");
+
+            Console.WriteLine($"Store Serves in Weekend More 10% Customers = {storeServesNums + (storeServesNums * 0.10)}");
         } 
         #endregion
 
         static void Main(string[] args)
         {
-            StoreSellProducts(1,1,1);
+            //StoreSellProducts(1,1,1);
+
+            //WeekendCustomers(120);
         }
     }
 }

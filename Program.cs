@@ -56,7 +56,42 @@
                 }
             }
             return true;
-        } 
+        }
+        #endregion
+
+        #region Convert Binnary To Decimal
+        #region Power Function
+        public static double Power(double baseValue, double powerValue)
+        {
+            if (powerValue == 0)
+                return 1;
+
+            double result = 1;
+
+            for (int i = 1; i <= powerValue; i++)
+            {
+                result *= baseValue;
+            }
+
+            return result;
+        }
+        #endregion
+
+        public static double ConvertBinaryToDecimal(string binary)
+        {
+            double descimalValue = 0;
+            int baseBinary = 0;
+
+            for (int i = binary.Length - 1; i >= 0; i--)
+            {
+                if (binary[i] == '1')
+                {
+                    descimalValue += Power(2, baseBinary);
+                }
+                baseBinary++;
+            }
+            return descimalValue;
+        }
         #endregion
 
         static void Main(string[] args)
@@ -68,6 +103,8 @@
             //BuyOneGetHalf(5);
 
             //Console.WriteLine(isPrime(27) ? "Prime" : "Not Prime");
+
+            Console.WriteLine( ConvertBinaryToDecimal("111"));
         }
     }
 }

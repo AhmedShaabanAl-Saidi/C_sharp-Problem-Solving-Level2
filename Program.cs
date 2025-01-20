@@ -38,6 +38,24 @@
                 Console.WriteLine($"Price of {numOfPurchase} Tshirts = {boundelPrice * boundelCount}$");
             else
                 Console.WriteLine($"Price of {numOfPurchase} Tshirts = {(boundelPrice * boundelCount) + tshirtPrice}$");
+        }
+        #endregion
+
+        #region IsPrime Function
+        public static bool isPrime(int num)
+        {
+            if (num == 1 || num == 0)
+            {
+                return false;
+            }
+            for (int i = 2; i <= num / 2; i++)
+            {
+                if (num % i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         } 
         #endregion
 
@@ -48,6 +66,8 @@
             //WeekendCustomers(120);
 
             //BuyOneGetHalf(5);
+
+            //Console.WriteLine(isPrime(27) ? "Prime" : "Not Prime");
         }
     }
 }

@@ -59,7 +59,7 @@
         }
         #endregion
 
-        #region Convert Binnary To Decimal
+        #region Convert Binary To Decimal
         #region Power Function
         public static double Power(double baseValue, double powerValue)
         {
@@ -94,6 +94,31 @@
         }
         #endregion
 
+        #region Fibonacci Series
+        public static void FibonacciSeries(int stopNumber)
+        {
+            Console.WriteLine("Fibonacci Series :");
+            Console.WriteLine("**************************");
+
+            int fristNumber = 0;
+            int secondNumber = 1;
+            int nextNumber = 0;
+
+            Console.Write(fristNumber + " ");
+            Console.Write(secondNumber + " ");
+
+            for (int i = 2; i < stopNumber; i++)
+            {
+                nextNumber = fristNumber + secondNumber;
+
+                fristNumber = secondNumber;
+                secondNumber = nextNumber;
+
+                Console.Write(nextNumber + " ");
+            }
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -104,7 +129,9 @@
 
             //Console.WriteLine(isPrime(27) ? "Prime" : "Not Prime");
 
-            Console.WriteLine( ConvertBinaryToDecimal("111"));
+            //Console.WriteLine( ConvertBinaryToDecimal("111"));
+
+            FibonacciSeries(10);
         }
     }
 }

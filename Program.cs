@@ -132,7 +132,21 @@
         #endregion
 
         #region Copy Half Of Array
-       
+        public static int[] CopyHalfOfArray(int[] array)
+        {
+            int arrayLength = array.Length;
+            if (arrayLength % 2 != 0)
+            {
+                arrayLength++;
+            }
+
+            int[] copiedArray = new int[(arrayLength / 2)];
+            for (int i = 0; i < (arrayLength / 2); i++)
+            {
+                copiedArray[i] = array[i];
+            }
+            return copiedArray;
+        }
         #endregion
 
         static void Main(string[] args)
@@ -154,10 +168,10 @@
             //Console.WriteLine(copiedArray[0]);
 
 
-            int[] array = { 1, 2, 3, 4, 5 , 6 , 7 , 8 , 9 , 10};
-            CopyHalfOfArray(array);
+            int[] array = { 1, 2, 3, 4, 5 , 6 , 7 , 8 , 9};
+            int[] CopyHalf = CopyHalfOfArray(array);
 
-            foreach (int number in array)
+            foreach (int number in CopyHalf)
             {
                 Console.WriteLine(number);
             }

@@ -149,6 +149,28 @@
         }
         #endregion
 
+        #region Copy Half Of Array End To Start
+        public static int[] CopyHalfOfArrayEndToStart(int[] array)
+        {
+            int arrayLength = array.Length;
+            int counter = 0;
+
+            if (arrayLength % 2 != 0)
+            {
+                arrayLength++;
+            }
+
+            int[] copiedArray = new int[(arrayLength / 2)];
+
+            for (int i = (array.Length - 1); i >= (array.Length - (arrayLength / 2)); i--)
+            {
+                copiedArray[counter] = array[i];
+                counter++;
+            }
+            return copiedArray;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -167,14 +189,13 @@
             //int[] copiedArray = CopyArray(array);
             //Console.WriteLine(copiedArray[0]);
 
+            //int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            //int[] CopyHalf = CopyHalfOfArrayEndToStart(array);
 
-            int[] array = { 1, 2, 3, 4, 5 , 6 , 7 , 8 , 9};
-            int[] CopyHalf = CopyHalfOfArray(array);
-
-            foreach (int number in CopyHalf)
-            {
-                Console.WriteLine(number);
-            }
+            //foreach (int number in CopyHalf)
+            //{
+            //    Console.WriteLine(number);
+            //}
 
         }
     }

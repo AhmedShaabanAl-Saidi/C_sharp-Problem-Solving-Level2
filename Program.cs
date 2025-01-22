@@ -119,6 +119,22 @@
         }
         #endregion
 
+        #region Copy Array
+        public static int[] CopyArray(int[] array)
+        {
+            int[] copiedArray = new int[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                copiedArray[i] = array[i];
+            }
+            return copiedArray;
+        }
+        #endregion
+
+        #region Copy Half Of Array
+       
+        #endregion
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -131,7 +147,21 @@
 
             //Console.WriteLine( ConvertBinaryToDecimal("111"));
 
-            FibonacciSeries(10);
+            //FibonacciSeries(10);
+
+            //int[] array = { 1, 2, 3, 4, 5 };
+            //int[] copiedArray = CopyArray(array);
+            //Console.WriteLine(copiedArray[0]);
+
+
+            int[] array = { 1, 2, 3, 4, 5 , 6 , 7 , 8 , 9 , 10};
+            CopyHalfOfArray(array);
+
+            foreach (int number in array)
+            {
+                Console.WriteLine(number);
+            }
+
         }
     }
 }

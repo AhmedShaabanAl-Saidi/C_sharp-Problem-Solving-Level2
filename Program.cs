@@ -1,4 +1,6 @@
-﻿namespace C_sharp_Problem_Solving_Level2
+﻿using System.Text;
+
+namespace C_sharp_Problem_Solving_Level2
 {
     internal class Program
     {
@@ -433,12 +435,39 @@
         #region Reverse String
         public static string ReverseString(string str)
         {
-            string reversedString = "";
+            StringBuilder reversedString = new StringBuilder();
+
             for (int i = str.Length-1; i >= 0 ; i--)
             {
-                reversedString += str[i];
+                reversedString.Append(str[i]);
             }
-            return reversedString;
+            return reversedString.ToString();
+        }
+        #endregion
+
+        #region IsVowels
+        public static bool IsVowels(char c)
+        {
+            string vowels = "aeiouAEIOU";
+            foreach (var letter in vowels)
+            {
+                if (letter == c)
+                    return true;
+            }
+            return false;
+        }
+        #endregion
+
+        #region Number Of Vowels In A String
+        public static int NumberOfVowelsInString(string str)
+        {
+            int counter = 0;
+            foreach (char letter in str)
+            {
+                if (IsVowels(letter))
+                    counter++;
+            }
+            return counter;
         }
         #endregion
 
@@ -546,6 +575,8 @@
             //    Console.WriteLine(number);
 
             //Console.WriteLine(ReverseString("Ahmed"));
+
+            //Console.WriteLine(NumberOfVowelsInString("Ahmedshaaban"));
 
         }
     }

@@ -469,6 +469,22 @@ namespace C_sharp_Problem_Solving_Level2
             }
             return counter;
         }
+
+        #endregion
+
+        #region Replaces Character In A String
+        public static string ReplacesCharacterInAString(string word, char letter, char charcter)
+        {
+            StringBuilder replacedWord = new StringBuilder(word);
+
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (word[i] == letter)
+                    replacedWord[i] = charcter;
+            }
+
+            return replacedWord.ToString();
+        }
         #endregion
 
         static void Main(string[] args)
@@ -577,6 +593,8 @@ namespace C_sharp_Problem_Solving_Level2
             //Console.WriteLine(ReverseString("Ahmed"));
 
             //Console.WriteLine(NumberOfVowelsInString("Ahmedshaaban"));
+
+            Console.WriteLine(ReplacesCharacterInAString("AhmedShaaban", 'a' , '$'));
 
         }
     }

@@ -397,6 +397,20 @@
         }
         #endregion
 
+        #region Search In 2D Array
+        public static bool SearchIn2DArray(int[,] array , int searchedNumber)
+        {
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                    if (array[i, j] == searchedNumber)
+                        return true;
+            }
+
+            return false;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -483,6 +497,13 @@
             //    { 7, 8, 9 }
             //};
             //Print2DArray(array);
+
+            //int[,] array = {
+            //    { 1, 2, 3 },
+            //    { 4, 5, 6 },
+            //    { 7, 8, 9 }
+            //};
+            //Console.WriteLine(SearchIn2DArray(array, 77) ? "Found" : "Not Found");
 
         }
     }

@@ -318,6 +318,27 @@
         }
         #endregion
 
+        #region Remove Element From Array
+        public static int[] RemoveElementFromArray(int[] array, int element)
+        {
+            if (!IsFound(element, array) || array.Length == 0)
+                return array;
+
+            int[] newArray = new int[array.Length - 1];
+            int counter = 0;
+
+            foreach (int item in array)
+            {
+                if (item != element)
+                {
+                    newArray[counter] = item;
+                    counter++;
+                }
+            }
+            return newArray;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -382,6 +403,11 @@
 
             //int[] array = { 6, 2, 3, 4, 5 };
             //Console.WriteLine(IsArrayInAsendingOrder(array) ? "Asending" : "Not Asending");
+
+            //int[] array = { 1, 2, 3, 4, 5 };
+            //int[] newArray = RemoveElementFromArray(array, 4);
+            //foreach (int number in newArray)
+            //    Console.WriteLine(number);
 
         }
     }

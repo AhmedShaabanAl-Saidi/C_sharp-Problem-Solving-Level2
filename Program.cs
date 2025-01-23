@@ -430,6 +430,18 @@
         }
         #endregion
 
+        #region Reverse String
+        public static string ReverseString(string str)
+        {
+            string reversedString = "";
+            for (int i = str.Length-1; i >= 0 ; i--)
+            {
+                reversedString += str[i];
+            }
+            return reversedString;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -532,6 +544,8 @@
             //int[] newArray = Convert2DArrayTo1DArray(array);
             //foreach (int number in newArray)
             //    Console.WriteLine(number);
+
+            //Console.WriteLine(ReverseString("Ahmed"));
 
         }
     }

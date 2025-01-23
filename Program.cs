@@ -288,6 +288,24 @@
         }
         #endregion
 
+        #region Intersection Between Two Arrays
+        public static int[] IntersectionBetweenTwoArrays(int[] array1, int[] array2)
+        {
+            int[] newArray = new int[array1.Length];
+            int counter = 0;
+
+            foreach (int item in array1)
+            {
+                if (IsFound(item, array2))
+                {
+                    newArray[counter] = item;
+                    counter++;
+                }
+            }
+            return newArray;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -343,7 +361,13 @@
             //int[] newArray = UnionTwoArrays(array1, array2);
             //foreach (int number in newArray)
             //    Console.WriteLine(number);
-            
-            }
+
+            //int[] array1 = { 1, 2, 3, 4, 5 };
+            //int[] array2 = { 4, 5, 7, 8, 9 };
+            //int[] newArray = IntersectionBetweenTwoArrays(array1, array2);
+            //foreach (int number in newArray)
+            //    Console.WriteLine(number);
+
         }
+    }
 }

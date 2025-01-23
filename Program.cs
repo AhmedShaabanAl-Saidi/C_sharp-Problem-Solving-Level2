@@ -362,6 +362,26 @@
         }
         #endregion
 
+        #region Rotate Array
+        public static int[] RotateArray(int[] array, int rotateNumber)
+        {
+            int[] newArray = new int[array.Length];
+            int counter = 0;
+
+            for (int i = rotateNumber; i < array.Length; i++)
+            {
+                newArray[counter] = array[i];
+                counter++;
+            }
+            for (int i = 0; i < rotateNumber; i++)
+            {
+                newArray[counter] = array[i];
+                counter++;
+            }
+            return newArray;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -434,6 +454,11 @@
 
             //int[] array = { 1, 2, 3, 4, 5 };
             //int[] newArray = InsertElementToArray(array, 10, 2);
+            //foreach (int number in newArray)
+            //    Console.WriteLine(number);
+
+            //int[] array = { 1, 2, 3, 4, 5 };
+            //int[] newArray = RotateArray(array, 2);
             //foreach (int number in newArray)
             //    Console.WriteLine(number);
 

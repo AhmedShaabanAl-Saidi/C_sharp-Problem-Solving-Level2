@@ -197,17 +197,6 @@
         public static int[] MergeTwoArrays(int[] array1, int[] array2)
         {
             int[] mergedArray = new int[array1.Length + array2.Length];
-            //int counter = 0;
-            //for (int i = 0; i < array1.Length; i++)
-            //{
-            //    mergedArray[counter] = array1[i];
-            //    counter++;
-            //}
-            //for (int i = 0; i < array2.Length; i++)
-            //{
-            //    mergedArray[counter] = array2[i];
-            //    counter++;
-            //}
             CopyFromStart(array1, mergedArray, array1.Length);
             CopyFromStart(array2, mergedArray, array2.Length, array1.Length);
 
@@ -275,6 +264,29 @@
         }
         #endregion
 
+        #region UnionTwoArrays
+        public static int[] UnionTwoArrays(int[] array1, int[] array2)
+        {
+            int[] UnionArray = new int[array1.Length + array2.Length];
+            int counter = 0;
+
+            foreach (int item in array1)
+            {
+                UnionArray[counter] = item;
+                counter++;
+            }
+
+            foreach (int item in array2)
+            {
+                if (IsFound(item, array1))
+                    continue;
+
+                UnionArray[counter] = item;
+                counter++;
+            }
+            return UnionArray;
+        }
+        #endregion
 
         static void Main(string[] args)
         {
@@ -318,14 +330,20 @@
             //    Console.WriteLine(number);
             //}
 
-            int[] array1 = { 1, 2, 3, 4, 5 };
-            int[] array2 = { 4 , 5, 7, 8, 9};
-            int[] newArray = DeferenceBetweenTwoArrays(array1, array2);
-            foreach (int number in newArray)
-            {
-               Console.WriteLine(number);
-            }
+            //int[] array1 = { 1, 2, 3, 4, 5 };
+            //int[] array2 = { 4 , 5, 7, 8, 9};
+            //int[] newArray = DeferenceBetweenTwoArrays(array1, array2);
+            //foreach (int number in newArray)
+            //{
+            //   Console.WriteLine(number);
+            //}
 
+            //int[] array1 = { 1, 2, 3, 4, 5 };
+            //int[] array2 = { 4, 5, 7, 8, 9 };
+            //int[] newArray = UnionTwoArrays(array1, array2);
+            //foreach (int number in newArray)
+            //    Console.WriteLine(number);
+            
+            }
         }
-    }
 }

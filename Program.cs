@@ -518,6 +518,38 @@ namespace C_sharp_Problem_Solving_Level2
         }
         #endregion
 
+        #region Trim String
+        public static string TrimString(string word)
+        {
+            StringBuilder TrimmedString = new StringBuilder();
+            int start = 0, end = 0;
+
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (word[i] != ' ')
+                {
+                    start = i;
+                    break;
+                }
+            }
+            for (int i = word.Length-1; i >= 0; i--)
+            {
+                if (word[i] != ' ')
+                {
+                    end = i;
+                    break;
+                }
+            }
+
+            for (int i = start; i <= end; i++)
+            {
+                TrimmedString.Append(word[i]);
+            }
+
+            return TrimmedString.ToString();
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -630,6 +662,8 @@ namespace C_sharp_Problem_Solving_Level2
             //Console.WriteLine(ConcatenatesTwoStrings("Ahmed", "Shaaban",true));
 
             //Console.WriteLine(RemoveAllSpaces("Ah  med S  haa   ban"));
+
+            Console.WriteLine(TrimString("   Ahmed Shaaban   "));
 
         }
     }

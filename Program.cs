@@ -490,12 +490,31 @@ namespace C_sharp_Problem_Solving_Level2
         #endregion
 
         #region Concatenates Two Strings
-        public static string ConcatenatesTwoStrings(string str1, string str2)
+        public static string ConcatenatesTwoStrings(string str1, string str2 , bool isIncludeSpace)
         {
             StringBuilder concatenatedString = new StringBuilder();
             concatenatedString.Append(str1);
-            concatenatedString.Append(" " + str2);
+
+            if (isIncludeSpace)
+                concatenatedString.Append(" ");
+
+            concatenatedString.Append(str2);
             return concatenatedString.ToString();
+        }
+        #endregion
+
+        #region Remove All Spaces
+        public static string RemoveAllSpaces(string word)
+        {
+            StringBuilder removedSpaces = new StringBuilder();
+
+            foreach (char item in word)
+            {
+                if (item != ' ')
+                    removedSpaces.Append(item);
+            }
+
+            return removedSpaces.ToString();
         }
         #endregion
 
@@ -608,7 +627,9 @@ namespace C_sharp_Problem_Solving_Level2
 
             //Console.WriteLine(ReplacesCharacterInAString("AhmedShaaban", 'a' , '$'));
 
-            //Console.WriteLine(ConcatenatesTwoStrings("Ahmed", "Shaaban"));
+            //Console.WriteLine(ConcatenatesTwoStrings("Ahmed", "Shaaban",true));
+
+            //Console.WriteLine(RemoveAllSpaces("Ah  med S  haa   ban"));
 
         }
     }

@@ -382,6 +382,21 @@
         }
         #endregion
 
+        #region Print 2D Array
+        public static void Print2DArray(int[,] array)
+        {
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                Console.WriteLine("------------------------");
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    Console.WriteLine(array[i, j] + " ");
+                }
+                Console.WriteLine("-------------------------");
+            }
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -461,6 +476,13 @@
             //int[] newArray = RotateArray(array, 2);
             //foreach (int number in newArray)
             //    Console.WriteLine(number);
+
+            //int[,] array = {
+            //    { 1, 2, 3 }, 
+            //    { 4, 5, 6 },
+            //    { 7, 8, 9 }
+            //};
+            //Print2DArray(array);
 
         }
     }

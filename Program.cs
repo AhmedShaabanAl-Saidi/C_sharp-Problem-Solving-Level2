@@ -475,15 +475,27 @@ namespace C_sharp_Problem_Solving_Level2
         #region Replaces Character In A String
         public static string ReplacesCharacterInAString(string word, char letter, char charcter)
         {
-            StringBuilder replacedWord = new StringBuilder(word);
+            StringBuilder replacedWord = new StringBuilder();
 
             for (int i = 0; i < word.Length; i++)
             {
                 if (word[i] == letter)
-                    replacedWord[i] = charcter;
+                    replacedWord.Append(charcter);
+                else
+                    replacedWord.Append(word[i]);
             }
 
             return replacedWord.ToString();
+        }
+        #endregion
+
+        #region Concatenates Two Strings
+        public static string ConcatenatesTwoStrings(string str1, string str2)
+        {
+            StringBuilder concatenatedString = new StringBuilder();
+            concatenatedString.Append(str1);
+            concatenatedString.Append(" " + str2);
+            return concatenatedString.ToString();
         }
         #endregion
 
@@ -594,7 +606,9 @@ namespace C_sharp_Problem_Solving_Level2
 
             //Console.WriteLine(NumberOfVowelsInString("Ahmedshaaban"));
 
-            Console.WriteLine(ReplacesCharacterInAString("AhmedShaaban", 'a' , '$'));
+            //Console.WriteLine(ReplacesCharacterInAString("AhmedShaaban", 'a' , '$'));
+
+            //Console.WriteLine(ConcatenatesTwoStrings("Ahmed", "Shaaban"));
 
         }
     }

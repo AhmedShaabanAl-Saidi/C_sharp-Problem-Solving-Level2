@@ -171,21 +171,45 @@
         }
         #endregion
 
+        #region Copy From Start
+        public static void CopyFromStart(int[] arrayFrom,int[] arrayTo,int lenght,int startPosition = 0)
+        {
+            for (int i = 0; i < lenght; i++)
+            {
+                arrayTo[startPosition] = arrayFrom[i];
+                startPosition++;
+            }
+        }
+        #endregion
+
         #region Merge Two Arrays
         public static int[] MergeTwoArrays(int[] array1, int[] array2)
         {
             int[] mergedArray = new int[array1.Length + array2.Length];
-            int counter = 0;
-            for (int i = 0; i < array1.Length; i++)
-            {
-                mergedArray[counter] = array1[i];
-                counter++;
-            }
-            for (int i = 0; i < array2.Length; i++)
-            {
-                mergedArray[counter] = array2[i];
-                counter++;
-            }
+            //int counter = 0;
+            //for (int i = 0; i < array1.Length; i++)
+            //{
+            //    mergedArray[counter] = array1[i];
+            //    counter++;
+            //}
+            //for (int i = 0; i < array2.Length; i++)
+            //{
+            //    mergedArray[counter] = array2[i];
+            //    counter++;
+            //}
+            CopyFromStart(array1, mergedArray, array1.Length);
+            CopyFromStart(array2, mergedArray, array2.Length, array1.Length);
+
+            return mergedArray;
+        }
+
+        public static int[] MergeTwoArrays(int[] array1,int fristLenght, int[] array2 , int secondLenght)
+        {
+            int[] mergedArray = new int[fristLenght + secondLenght];
+           
+            CopyFromStart(array1, mergedArray, fristLenght);
+            CopyFromStart(array2, mergedArray, secondLenght, fristLenght);
+
             return mergedArray;
         }
         #endregion
@@ -216,13 +240,13 @@
             //    Console.WriteLine(number);
             //}
 
-            //int[] array1 = { 1, 2, 3, 4, 5 };
-            //int[] array2 = { 6, 7, 8, 9, 10 };
-            //int[] mergedArray = MergeTwoArrays(array1, array2);
-            //foreach (int number in mergedArray)
-            //{
-            //    Console.WriteLine(number);
-            //}
+            int[] array1 = { 1, 2, 3, 4, 5 };
+            int[] array2 = { 6, 7, 8, 9, 10 };
+            int[] mergedArray = MergeTwoArrays(array1 ,2, array2,5);
+            foreach (int number in mergedArray)
+            {
+                Console.WriteLine(number);
+            }
 
         }
     }

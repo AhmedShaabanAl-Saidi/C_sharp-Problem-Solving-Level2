@@ -245,6 +245,37 @@
         }
         #endregion
 
+        #region isFound
+        public static bool IsFound(int number , int[] array)
+        {
+            foreach (int item in array)
+            {
+                if (item == number)
+                    return true;
+            }
+            return false;
+        }
+        #endregion
+
+        #region Deference Between Two Arrays
+        public static int[] DeferenceBetweenTwoArrays(int[] array1, int[] array2)
+        {
+            int[] newArray = new int[array1.Length];
+            int counter = 0;
+
+            foreach (int item in array1)
+            {
+                if (!IsFound(item, array2))
+                {
+                    newArray[counter] = item;
+                    counter++;
+                }
+            }
+            return newArray;
+        }
+        #endregion
+
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -279,12 +310,20 @@
             //    Console.WriteLine(number);
             //}
 
+            //int[] array1 = { 1, 2, 3, 4, 5 };
+            //int[] array2 = { 6, 7, 8, 9, 10 };
+            //int[] mergedArray = MergeTwoArraysFromEnd(array1,2, array2,2);
+            //foreach (int number in mergedArray)
+            //{
+            //    Console.WriteLine(number);
+            //}
+
             int[] array1 = { 1, 2, 3, 4, 5 };
-            int[] array2 = { 6, 7, 8, 9, 10 };
-            int[] mergedArray = MergeTwoArraysFromEnd(array1,2, array2,2);
-            foreach (int number in mergedArray)
+            int[] array2 = { 4 , 5, 7, 8, 9};
+            int[] newArray = DeferenceBetweenTwoArrays(array1, array2);
+            foreach (int number in newArray)
             {
-                Console.WriteLine(number);
+               Console.WriteLine(number);
             }
 
         }

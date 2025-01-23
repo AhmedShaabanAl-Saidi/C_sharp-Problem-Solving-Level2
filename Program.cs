@@ -339,6 +339,29 @@
         }
         #endregion
 
+        #region Insert Element To Array
+        public static int[] InsertElementToArray(int[] array, int element, int index)
+        {
+            if (index < 0 || index > array.Length)
+                return array;
+
+            int[] newArray = new int[array.Length + 1];
+            int counter = 0;
+
+            for (int i = 0; i < newArray.Length; i++)
+            {
+                if (i == index)
+                    newArray[i] = element;
+                else
+                {
+                    newArray[i] = array[counter];
+                    counter++;
+                }
+            }
+            return newArray;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -406,6 +429,11 @@
 
             //int[] array = { 1, 2, 3, 4, 5 };
             //int[] newArray = RemoveElementFromArray(array, 4);
+            //foreach (int number in newArray)
+            //    Console.WriteLine(number);
+
+            //int[] array = { 1, 2, 3, 4, 5 };
+            //int[] newArray = InsertElementToArray(array, 10, 2);
             //foreach (int number in newArray)
             //    Console.WriteLine(number);
 

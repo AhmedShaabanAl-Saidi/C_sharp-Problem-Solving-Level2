@@ -411,6 +411,25 @@
         }
         #endregion
 
+        #region Convert 2D Array To 1D Array
+        public static int[] Convert2DArrayTo1DArray(int[,] array)
+        {
+            int[] newArray = new int[array.GetLength(0) * array.GetLength(1)];
+            int counter = 0;
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    newArray[counter] = array[i, j];
+                    counter++;
+                }
+            }
+
+            return newArray;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -504,6 +523,15 @@
             //    { 7, 8, 9 }
             //};
             //Console.WriteLine(SearchIn2DArray(array, 77) ? "Found" : "Not Found");
+
+            //int[,] array = {
+            //    { 1, 2, 3 },
+            //    { 4, 5, 6 },
+            //    { 7, 8, 9 }
+            //};
+            //int[] newArray = Convert2DArrayTo1DArray(array);
+            //foreach (int number in newArray)
+            //    Console.WriteLine(number);
 
         }
     }

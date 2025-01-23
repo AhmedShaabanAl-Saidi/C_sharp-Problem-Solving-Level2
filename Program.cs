@@ -182,6 +182,17 @@
         }
         #endregion
 
+        #region Copy From End
+        public static void CopyFromEnd(int[] arrayFrom, int[] arrayTo, int lenght, int startPosition = 0)
+        {
+            for (int i = arrayFrom.Length -1; i >= arrayFrom.Length - lenght ; i--)
+            {
+                arrayTo[startPosition] = arrayFrom[i];
+                startPosition++;
+            }
+        }
+        #endregion
+
         #region Merge Two Arrays
         public static int[] MergeTwoArrays(int[] array1, int[] array2)
         {
@@ -209,6 +220,26 @@
            
             CopyFromStart(array1, mergedArray, fristLenght);
             CopyFromStart(array2, mergedArray, secondLenght, fristLenght);
+
+            return mergedArray;
+        }
+
+        public static int[] MergeTwoArraysFromEnd(int[] array1, int[] array2)
+        {
+            int[] mergedArray = new int[array1.Length + array2.Length];
+            
+            CopyFromEnd(array1, mergedArray, array1.Length);
+            CopyFromEnd(array2, mergedArray, array2.Length, array1.Length);
+
+            return mergedArray;
+        }
+
+        public static int[] MergeTwoArraysFromEnd(int[] array1, int fristLenght, int[] array2, int secondLenght)
+        {
+            int[] mergedArray = new int[fristLenght + secondLenght];
+
+            CopyFromEnd(array1, mergedArray, fristLenght);
+            CopyFromEnd(array2, mergedArray, secondLenght, fristLenght);
 
             return mergedArray;
         }
@@ -240,9 +271,17 @@
             //    Console.WriteLine(number);
             //}
 
+            //int[] array1 = { 1, 2, 3, 4, 5 };
+            //int[] array2 = { 6, 7, 8, 9, 10 };
+            //int[] mergedArray = MergeTwoArrays(array1 ,2, array2,5);
+            //foreach (int number in mergedArray)
+            //{
+            //    Console.WriteLine(number);
+            //}
+
             int[] array1 = { 1, 2, 3, 4, 5 };
             int[] array2 = { 6, 7, 8, 9, 10 };
-            int[] mergedArray = MergeTwoArrays(array1 ,2, array2,5);
+            int[] mergedArray = MergeTwoArraysFromEnd(array1,2, array2,2);
             foreach (int number in mergedArray)
             {
                 Console.WriteLine(number);

@@ -278,11 +278,11 @@
 
             foreach (int item in array2)
             {
-                if (IsFound(item, array1))
-                    continue;
-
-                UnionArray[counter] = item;
-                counter++;
+                if (!IsFound(item, array1))
+                {
+                    UnionArray[counter] = item;
+                    counter++;
+                }
             }
             return UnionArray;
         }
@@ -303,6 +303,18 @@
                 }
             }
             return newArray;
+        }
+        #endregion
+
+        #region Check Array In Asending Order
+        public static bool IsArrayInAsendingOrder(int[] array)
+        {
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                if (array[i] > array[i + 1])
+                    return false;
+            }
+            return true;
         }
         #endregion
 
@@ -367,6 +379,9 @@
             //int[] newArray = IntersectionBetweenTwoArrays(array1, array2);
             //foreach (int number in newArray)
             //    Console.WriteLine(number);
+
+            //int[] array = { 6, 2, 3, 4, 5 };
+            //Console.WriteLine(IsArrayInAsendingOrder(array) ? "Asending" : "Not Asending");
 
         }
     }

@@ -599,6 +599,36 @@ namespace C_sharp_Problem_Solving_Level2
         }
         #endregion
 
+        #region ShiftChar
+        public static char ShiftChar(char letter, int shift)
+        {
+            int baseValue = 0;
+            baseValue = (char.IsUpper(letter)) ? 'A' : 'a';
+            int newLetter = (letter - baseValue + shift) % 26 + baseValue;
+            return (char)newLetter;
+        }
+        #endregion
+
+        #region Encrypts A String Using Caesar Cipher
+        public static string EncryptsAStringUsingCaesarCipher(string input, int shift)
+        {
+            StringBuilder encryptedString = new StringBuilder();
+            string newInput = TrimString(input);
+
+            foreach (char letter in newInput)
+            {
+                if (!(char.IsLetter(letter)))
+                {
+                    encryptedString.Append(letter);
+                    continue;
+                }
+                encryptedString.Append(ShiftChar(letter, shift));
+            }
+
+            return encryptedString.ToString();
+        }
+        #endregion
+
 
         static void Main(string[] args)
         {
@@ -721,6 +751,7 @@ namespace C_sharp_Problem_Solving_Level2
 
             //Console.WriteLine(GetLongestWord("My Name Is Ahmed Shaaban"));
 
+            Console.WriteLine(EncryptsAStringUsingCaesarCipher("Hello, World", 2));
 
         }
     }

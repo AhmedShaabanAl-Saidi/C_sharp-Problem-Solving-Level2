@@ -629,6 +629,25 @@ namespace C_sharp_Problem_Solving_Level2
         }
         #endregion
 
+        #region Decodes A String Encoded With A Caesar Cipher
+        public static string DecodesAStringEncodedWithACaesarCipher(string input, int shift)
+        {
+            StringBuilder encryptedString = new StringBuilder();
+            string newInput = TrimString(input);
+
+            foreach (char letter in newInput)
+            {
+                if (!(char.IsLetter(letter)))
+                {
+                    encryptedString.Append(letter);
+                    continue;
+                }
+                encryptedString.Append(ShiftChar(letter, -shift));
+            }
+
+            return encryptedString.ToString();
+        }
+        #endregion
 
         static void Main(string[] args)
         {
@@ -751,7 +770,9 @@ namespace C_sharp_Problem_Solving_Level2
 
             //Console.WriteLine(GetLongestWord("My Name Is Ahmed Shaaban"));
 
-            Console.WriteLine(EncryptsAStringUsingCaesarCipher("Hello, World", 2));
+            //Console.WriteLine(EncryptsAStringUsingCaesarCipher("Hello, World", 2));
+
+            Console.WriteLine(DecodesAStringEncodedWithACaesarCipher("Jgnnq, Yqtnf", 2));
 
         }
     }

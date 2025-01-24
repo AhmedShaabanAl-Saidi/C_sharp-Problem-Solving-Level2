@@ -550,6 +550,41 @@ namespace C_sharp_Problem_Solving_Level2
         }
         #endregion
 
+        #region Convert String To Words
+        public static string[] ConvertStringToWords(string input)
+        {
+            int arrayLength = input.Length / 2;
+            string[] words = new string[arrayLength];
+            string newInput = TrimString(input);
+            int counter = 0;
+
+            StringBuilder resuit = new StringBuilder();
+
+            foreach (char item in newInput)
+            {
+                if (item == ' ')
+                {
+                    words[counter] = resuit.ToString();
+                    counter++;
+                    resuit.Clear();
+                    continue;
+                }
+                resuit.Append(item);
+            }
+
+            words[counter] = resuit.ToString();
+            resuit.Clear();
+
+            string[] newWords = new string[counter + 1];
+
+            for (int i = 0; i < newWords.Length; i++)
+                newWords[i] = words[i];
+
+            return newWords;
+        }
+        #endregion
+
+
         static void Main(string[] args)
         {
             //StoreSellProducts(1,1,1);
@@ -663,7 +698,11 @@ namespace C_sharp_Problem_Solving_Level2
 
             //Console.WriteLine(RemoveAllSpaces("Ah  med S  haa   ban"));
 
-            Console.WriteLine(TrimString("   Ahmed Shaaban   "));
+            //Console.WriteLine(TrimString("   Ahmed Shaaban   "));
+
+            string[] words = ConvertStringToWords("Ahmed Shaaban ");
+            foreach (string word in words)
+                Console.WriteLine(word);
 
         }
     }

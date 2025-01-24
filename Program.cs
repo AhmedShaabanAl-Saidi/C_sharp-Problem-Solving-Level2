@@ -584,6 +584,21 @@ namespace C_sharp_Problem_Solving_Level2
         }
         #endregion
 
+        #region Get Longest Word From String
+        public static string GetLongestWord(string input)
+        {
+            string[] words = ConvertStringToWords(input);
+            string longestWord = words[0];
+
+            foreach (string word in words)
+            {
+                if (word.Length > longestWord.Length)
+                    longestWord = word;
+            }
+            return longestWord;
+        }
+        #endregion
+
 
         static void Main(string[] args)
         {
@@ -700,9 +715,12 @@ namespace C_sharp_Problem_Solving_Level2
 
             //Console.WriteLine(TrimString("   Ahmed Shaaban   "));
 
-            string[] words = ConvertStringToWords("Ahmed Shaaban ");
-            foreach (string word in words)
-                Console.WriteLine(word);
+            //string[] words = ConvertStringToWords("Ahmed Shaaban ");
+            //foreach (string word in words)
+            //    Console.WriteLine(word);
+
+            //Console.WriteLine(GetLongestWord("My Name Is Ahmed Shaaban"));
+
 
         }
     }
